@@ -1,0 +1,203 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/inter-latin.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sora';
+  src: url('fonts/sora-latin.woff2') format('woff2');
+  font-weight: 100 800;
+  font-display: swap;
+}
+
+:root {
+  --navy: #0B1437;
+  --slate: #667085;
+  --slate-dark: #344054;
+  --primary: #155EEF;
+  --secondary: #6941C6;
+  --bg: #F7F9FC;
+  --bg-alt: #EEF2FF;
+  --border: #E4E7EC;
+  --white: #FFFFFF;
+  --gradient: linear-gradient(135deg, #155EEF 0%, #6941C6 100%);
+  --gradient-soft: linear-gradient(135deg, #EEF2FF 0%, #F4F0FF 100%);
+  --display: 'Sora', 'Inter', system-ui, sans-serif;
+  --body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --radius: 14px;
+  --shadow: 0 8px 24px rgba(11, 20, 55, 0.08);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--slate);
+  background: var(--white);
+}
+
+h1, h2, h3 {
+  font-family: var(--display);
+  color: var(--navy);
+  line-height: 1.15;
+  margin: 0;
+}
+
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.wrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.brand {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--navy);
+}
+.brand:hover { text-decoration: none; }
+.brand span { color: var(--primary); }
+.nav a {
+  margin-left: 1.5rem;
+  font-weight: 500;
+  color: var(--slate-dark);
+}
+
+/* Hero */
+.hero {
+  background: var(--gradient-soft);
+  padding: 6rem 0 5.5rem;
+}
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 800;
+  max-width: 14ch;
+  letter-spacing: -0.02em;
+}
+.hero h1 em {
+  font-style: normal;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero p {
+  max-width: 40rem;
+  margin: 1.5rem 0 2rem;
+  font-size: 1.2rem;
+  color: var(--slate-dark);
+}
+.btn {
+  display: inline-block;
+  padding: 0.85rem 1.75rem;
+  border-radius: 100px;
+  background: var(--gradient);
+  color: var(--white);
+  font-weight: 600;
+  box-shadow: 0 12px 28px rgba(21, 94, 239, 0.25);
+}
+.btn:hover { text-decoration: none; filter: brightness(1.06); }
+
+/* Sections */
+section { padding: 5rem 0; }
+.eyebrow {
+  font-family: var(--display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+}
+section h2 {
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+}
+
+/* What we do */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  box-shadow: var(--shadow);
+}
+.card h3 { font-size: 1.25rem; margin-bottom: 0.6rem; }
+.card p { margin: 0; }
+
+/* People */
+.people { background: var(--bg); }
+.team {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.person { text-align: center; }
+.avatar {
+  width: 112px;
+  height: 112px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: var(--gradient);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 2rem;
+}
+.person h3 { font-size: 1.1rem; }
+
+/* Contact */
+.contact a {
+  font-family: var(--display);
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 600;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--navy);
+  color: #98A2B3;
+  padding: 2.5rem 0;
+  font-size: 0.9rem;
+}
+.site-footer p { margin: 0.2rem 0; }
+.site-footer strong { color: var(--white); }
+
+@media (max-width: 720px) {
+  .cards, .team { grid-template-columns: 1fr; }
+  .hero { padding: 4rem 0 3.5rem; }
+  section { padding: 3.5rem 0; }
+  .nav a { margin-left: 1rem; }
+}
